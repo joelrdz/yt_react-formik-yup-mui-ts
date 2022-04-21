@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom/client';
 import App from './pages/App';
 import 'styles/index.css';
 
+import { ThemeProvider } from '@material-ui/core';
+import { theme } from 'styles/theme.styles';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
