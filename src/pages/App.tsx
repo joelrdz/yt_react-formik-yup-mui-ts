@@ -1,8 +1,9 @@
 // PLUGINS IMPORTS //
 import { useState } from 'react';
 import { Typography, Stepper, Step, StepLabel } from '@material-ui/core';
+import { Form, Formik } from 'formik';
 // COMPONENTS IMPORTS //
-import { Wrapper } from 'components/layout'
+import { Wrapper } from 'components/layout';
 // EXTRA IMPORTS //
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
@@ -32,7 +33,11 @@ const App = () => {
         ))}
       </Stepper>
 
-      { renderStepContent(activeStep) }
+      <Formik initialValues={{}} onSubmit={() => {}}>
+        <Form>
+          { renderStepContent(activeStep) }
+        </Form>
+      </Formik>
     </Wrapper>
   );
 };
