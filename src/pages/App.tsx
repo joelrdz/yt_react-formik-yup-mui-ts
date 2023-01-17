@@ -4,6 +4,7 @@ import { Typography, Stepper, Step, StepLabel } from '@material-ui/core';
 import { Form, Formik } from 'formik';
 // COMPONENTS IMPORTS //
 import { Wrapper } from 'components/layout';
+import initialValues from 'utils/initial-values';
 // EXTRA IMPORTS //
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
@@ -33,7 +34,7 @@ const App = () => {
         ))}
       </Stepper>
 
-      <Formik initialValues={{}} onSubmit={() => {}}>
+      <Formik initialValues={ initialValues } onSubmit={() => {}}>
         <Form>
           { renderStepContent(activeStep) }
         </Form>
