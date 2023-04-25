@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useField } from 'formik';
-import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
+import { at } from 'lodash';
+import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from '@material-ui/core';
 
 interface PropsType {
   data: Array<{ label: string; value: string; }>;
@@ -13,6 +14,14 @@ const SelectField: FC<PropsType> = props => {
   const { label, data, ...rest } = props;
   const [field, meta] = useField(props);
   const { value: selectedValue } = field;
+  const [touched, error] = at(meta, 'touched', 'error');
+  const isError = touched && error && true;
+
+  function renderHelperText() {
+    if (isError) {
+      return <FormHelperText>{ error }</FormHelperText>;
+    }
+  }
 
   return (
     <FormControl { ...rest }>
@@ -24,6 +33,7 @@ const SelectField: FC<PropsType> = props => {
           </MenuItem>
         ))}
       </Select>
+      { renderHelperText() }
     </FormControl>
   );
 };
