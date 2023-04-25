@@ -11,6 +11,9 @@ const AddressForm: FC<PropsType> = props => {
   const {
     formField: {
       firstName,
+      lastName,
+      address1,
+      address2,
     }
   } = props;
 
@@ -23,6 +26,33 @@ const AddressForm: FC<PropsType> = props => {
             defaultProps={{
               name: firstName.name,
               label: firstName.label,
+              fullWidth: true,
+            }}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <InputField
+            defaultProps={{
+              name: lastName.name,
+              label: lastName.label,
+              fullWidth: true,
+            }}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <InputField
+            defaultProps={{
+              name: address1.name,
+              label: address1.label,
+              fullWidth: true,
+            }}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <InputField
+            defaultProps={{
+              name: address2.name,
+              label: address2.label,
               fullWidth: true,
             }}
           />
