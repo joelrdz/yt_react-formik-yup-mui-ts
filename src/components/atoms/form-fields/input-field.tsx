@@ -5,7 +5,7 @@ import { TextField, TextFieldProps } from '@material-ui/core';
 
 interface PropsType {
   errorText?: string;
-  defaultProps?: TextFieldProps;
+  defaultProps: TextFieldProps;
 }
 
 const InputField: FC<PropsType> = props => {

@@ -6,12 +6,15 @@ import { Form, Formik } from 'formik';
 import { Wrapper } from 'components/layout';
 import { AddressForm } from 'components/organisms/forms';
 import initialValues from 'utils/initial-values';
+import formModel from 'utils/form-model';
 // EXTRA IMPORTS //
+
+const { formField } = formModel;
 
 const renderStepContent = (step: number) => {
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <AddressForm formField={formField} />;
     case 1:
       return <div>Payment details</div>;
     case 2:

@@ -1,9 +1,29 @@
 import { FC } from 'react';
+import { FormikValues } from 'formik';
+import { InputField } from 'components/atoms/form-fields';
 
-interface PropsType {}
+interface PropsType {
+  formField: FormikValues;
+}
 
 const AddressForm: FC<PropsType> = props => {
-  return <div>AddressForm</div>;
+  const {
+    formField: {
+      firstName,
+    }
+  } = props;
+
+  return (
+    <div>
+      <InputField
+        defaultProps={{
+          name: firstName.name,
+          label: firstName.label,
+          fullWidth: true,
+        }}
+      />
+    </div>
+  );
 };
 
 export default AddressForm;
