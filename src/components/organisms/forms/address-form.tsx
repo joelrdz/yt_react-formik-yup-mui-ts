@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { FormikValues } from 'formik';
+import { Grid, Typography } from '@material-ui/core';
 import { InputField } from 'components/atoms/form-fields';
 
 interface PropsType {
@@ -15,13 +16,18 @@ const AddressForm: FC<PropsType> = props => {
 
   return (
     <div>
-      <InputField
-        defaultProps={{
-          name: firstName.name,
-          label: firstName.label,
-          fullWidth: true,
-        }}
-      />
+      <Typography>Shipping address</Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={6}>
+          <InputField
+            defaultProps={{
+              name: firstName.name,
+              label: firstName.label,
+              fullWidth: true,
+            }}
+          />
+        </Grid>
+      </Grid>
     </div>
   );
 };
