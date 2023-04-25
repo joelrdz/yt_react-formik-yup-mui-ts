@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useField } from 'formik';
-import { Checkbox, FormControl, FormControlLabel } from '@material-ui/core';
+import { at } from 'lodash';
+import { Checkbox, FormControl, FormControlLabel, FormHelperText } from '@material-ui/core';
 
 interface PropsType {
   name: string;
@@ -16,6 +17,15 @@ const CheckboxField: FC<PropsType> = props => {
     setValue(e.target.checked);
   }
 
+  function renderHelperText() {
+    const [touched, error] = at(meta, 'touched', 'error');
+    const isError = touched && error && true;
+
+    if (isError) {
+      return <FormHelperText>{ error }</FormHelperText>;
+    }
+  }
+
   return (
     <FormControl {...restProps}>
       <FormControlLabel
@@ -24,6 +34,7 @@ const CheckboxField: FC<PropsType> = props => {
         control={<Checkbox {...field} onChange={onChange} />}
         label={label}
       />
+      {renderHelperText()}
     </FormControl>
   );
 };
