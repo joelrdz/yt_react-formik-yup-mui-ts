@@ -1,4 +1,3 @@
-// PLUGINS IMPORTS //
 import { theme } from './theme.styles';
 import { makeStyles } from '@material-ui/core';
 
@@ -13,7 +12,7 @@ export const useStyle = makeStyles(() => ({
       marginRight: 'auto',
     },
     backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary
+    color: theme.palette.text.primary,
   },
   paper: {
     marginTop: theme.spacing(3),
@@ -22,7 +21,7 @@ export const useStyle = makeStyles(() => ({
     [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
       marginTop: theme.spacing(6),
       marginBottom: theme.spacing(6),
-      padding: theme.spacing(3)
-    }
-  }
+      padding: theme.spacing(3),
+    },
+  },
 }));
