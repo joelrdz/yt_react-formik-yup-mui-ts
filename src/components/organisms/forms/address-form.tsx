@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { FormikValues } from 'formik';
 import { Grid, Typography } from '@material-ui/core';
-import { InputField, SelectField } from 'components/atoms/form-fields';
+import { CheckboxField, InputField, SelectField } from 'components/atoms/form-fields';
 
 interface PropsType {
   formField: FormikValues;
@@ -18,6 +18,7 @@ const AddressForm: FC<PropsType> = props => {
       state,
       zipcode,
       country,
+      useAddressForPaymentDetails,
     },
   } = props;
 
@@ -91,6 +92,12 @@ const AddressForm: FC<PropsType> = props => {
           label={country.label}
           data={countries}
           fullWidth
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <CheckboxField
+          name={useAddressForPaymentDetails.name}
+          label={useAddressForPaymentDetails.label}
         />
       </Grid>
     </Grid>
