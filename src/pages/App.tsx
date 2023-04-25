@@ -8,21 +8,21 @@ import { AddressForm } from 'components/organisms/forms';
 import initialValues from 'utils/initial-values';
 // EXTRA IMPORTS //
 
+const renderStepContent = (step: number) => {
+  switch (step) {
+    case 0:
+      return <AddressForm />;
+    case 1:
+      return <div>Payment details</div>;
+    case 2:
+      return <div>Review your order</div>;
+  }
+};
+
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 const App = () => {
   const [activeStep, setActiveStep] = useState(0);
-
-  const renderStepContent = (step: number) => {
-    switch (step) {
-      case 0:
-        return <AddressForm />;
-      case 1:
-        return <div>Payment details</div>;
-      case 2:
-        return <div>Review your order</div>;
-    }
-  };
 
   return (
     <Wrapper>
