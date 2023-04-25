@@ -4,18 +4,19 @@ import { Typography, Stepper, Step, StepLabel } from '@material-ui/core';
 import { Form, Formik } from 'formik';
 // COMPONENTS IMPORTS //
 import { Wrapper } from 'components/layout';
+import { AddressForm } from 'components/organisms/forms';
 import initialValues from 'utils/initial-values';
 // EXTRA IMPORTS //
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 const App = () => {
-  const [activeStep, setActiveStep] = useState(1);
+  const [activeStep, setActiveStep] = useState(0);
 
   const renderStepContent = (step: number) => {
     switch (step) {
       case 0:
-        return <div>Shipping address</div>;
+        return <AddressForm />;
       case 1:
         return <div>Payment details</div>;
       case 2:
