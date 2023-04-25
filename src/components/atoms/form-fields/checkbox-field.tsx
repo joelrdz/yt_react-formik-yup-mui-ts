@@ -9,14 +9,19 @@ interface PropsType {
 
 const CheckboxField: FC<PropsType> = props => {
   const { label, ...restProps } = props;
-  const [field, meta] = useField(props);
+  const [field, meta, helper] = useField(props);
+  const { setValue } = helper;
+
+  function onChange(e) {
+    setValue(e.target.checked);
+  }
 
   return (
     <FormControl {...restProps}>
       <FormControlLabel
         value={field.checked}
         checked={field.checked}
-        control={<Checkbox {...field} />}
+        control={<Checkbox {...field} onChange={onChange} />}
         label={label}
       />
     </FormControl>
